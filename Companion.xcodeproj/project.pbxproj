@@ -10,7 +10,7 @@
 		7D01DDFC227C77CE00488F19 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01DDFB227C77CE00488F19 /* SecondViewController.swift */; };
 		7D0C0E0C227F164300E82000 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0C0E0B227F164300E82000 /* AsyncOperation.swift */; };
 		7D0C0E0E227F312400E82000 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0C0E0D227F312400E82000 /* ThirdViewController.swift */; };
-		7D0C0E10227F3E6100E82000 /* StudentInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0C0E0F227F3E6100E82000 /* StudentInformationCell.swift */; };
+		7D0C0E10227F3E6100E82000 /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0C0E0F227F3E6100E82000 /* SkillCell.swift */; };
 		7D1A414F227ADBC9001FEEE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A414E227ADBC9001FEEE4 /* AppDelegate.swift */; };
 		7D1A4151227ADBC9001FEEE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A4150227ADBC9001FEEE4 /* ViewController.swift */; };
 		7D1A4154227ADBC9001FEEE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D1A4152227ADBC9001FEEE4 /* Main.storyboard */; };
@@ -18,6 +18,8 @@
 		7D1A4159227ADBC9001FEEE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D1A4157227ADBC9001FEEE4 /* LaunchScreen.storyboard */; };
 		7D1A4161227AEB90001FEEE4 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A4160227AEB90001FEEE4 /* DataController.swift */; };
 		7D1A4163227AEC42001FEEE4 /* GetStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A4162227AEC42001FEEE4 /* GetStudent.swift */; };
+		7DAE4F3E2282D8F3006BBA50 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE4F3D2282D8F3006BBA50 /* ProjectCell.swift */; };
+		7DAE4F4022832FA0006BBA50 /* ParentProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE4F3F22832FA0006BBA50 /* ParentProjectCell.swift */; };
 		7DE22991227B2D8100569826 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE22990227B2D8100569826 /* Student.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +27,7 @@
 		7D01DDFB227C77CE00488F19 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		7D0C0E0B227F164300E82000 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		7D0C0E0D227F312400E82000 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		7D0C0E0F227F3E6100E82000 /* StudentInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformationCell.swift; sourceTree = "<group>"; };
+		7D0C0E0F227F3E6100E82000 /* SkillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCell.swift; sourceTree = "<group>"; };
 		7D1A414B227ADBC9001FEEE4 /* Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Companion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D1A414E227ADBC9001FEEE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D1A4150227ADBC9001FEEE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,8 @@
 		7D1A415A227ADBC9001FEEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D1A4160227AEB90001FEEE4 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		7D1A4162227AEC42001FEEE4 /* GetStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStudent.swift; sourceTree = "<group>"; };
+		7DAE4F3D2282D8F3006BBA50 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
+		7DAE4F3F22832FA0006BBA50 /* ParentProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentProjectCell.swift; sourceTree = "<group>"; };
 		7DE22990227B2D8100569826 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,15 +73,17 @@
 			isa = PBXGroup;
 			children = (
 				7D1A414E227ADBC9001FEEE4 /* AppDelegate.swift */,
+				7D1A4160227AEB90001FEEE4 /* DataController.swift */,
 				7D1A4150227ADBC9001FEEE4 /* ViewController.swift */,
 				7D01DDFB227C77CE00488F19 /* SecondViewController.swift */,
 				7D0C0E0D227F312400E82000 /* ThirdViewController.swift */,
-				7D1A4160227AEB90001FEEE4 /* DataController.swift */,
 				7D1A4162227AEC42001FEEE4 /* GetStudent.swift */,
 				7DE22990227B2D8100569826 /* Student.swift */,
 				7D0C0E0B227F164300E82000 /* AsyncOperation.swift */,
 				7D1A4152227ADBC9001FEEE4 /* Main.storyboard */,
-				7D0C0E0F227F3E6100E82000 /* StudentInformationCell.swift */,
+				7D0C0E0F227F3E6100E82000 /* SkillCell.swift */,
+				7DAE4F3D2282D8F3006BBA50 /* ProjectCell.swift */,
+				7DAE4F3F22832FA0006BBA50 /* ParentProjectCell.swift */,
 				7D1A4155227ADBC9001FEEE4 /* Assets.xcassets */,
 				7D1A4157227ADBC9001FEEE4 /* LaunchScreen.storyboard */,
 				7D1A415A227ADBC9001FEEE4 /* Info.plist */,
@@ -159,8 +165,10 @@
 			files = (
 				7D01DDFC227C77CE00488F19 /* SecondViewController.swift in Sources */,
 				7D1A4151227ADBC9001FEEE4 /* ViewController.swift in Sources */,
-				7D0C0E10227F3E6100E82000 /* StudentInformationCell.swift in Sources */,
+				7D0C0E10227F3E6100E82000 /* SkillCell.swift in Sources */,
+				7DAE4F3E2282D8F3006BBA50 /* ProjectCell.swift in Sources */,
 				7D0C0E0C227F164300E82000 /* AsyncOperation.swift in Sources */,
+				7DAE4F4022832FA0006BBA50 /* ParentProjectCell.swift in Sources */,
 				7D1A4161227AEB90001FEEE4 /* DataController.swift in Sources */,
 				7D1A414F227ADBC9001FEEE4 /* AppDelegate.swift in Sources */,
 				7DE22991227B2D8100569826 /* Student.swift in Sources */,

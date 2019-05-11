@@ -44,6 +44,7 @@ class GetStudent: AsyncOperation {
                 return
             }
             DataController.student = student
+            
             self.state = .finished
         }.resume()
     }

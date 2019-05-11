@@ -12,12 +12,7 @@ import Foundation
 
 struct Campus: Codable {
     
-    var adress: String
-    //var city: String///enum
-    //var country: String///enum
-    var id: Int
-    //var name = Kyiv;
-    var zip: Int
+    var name: String
     
 }
 
@@ -50,20 +45,32 @@ struct CursusUsers: Codable {
 
 struct Project: Codable {
     var name: String
+    var id: Int
+    var parentId: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case id
+        case parentId = "parent_id"
+    }
 }
 
-struct ProjectsUser: Codable {
+
+
+struct ProjectUser: Codable {
     
     var finalMark: Int?
     var project: Project
     var status: String
     var validated: Bool?
+    var cursusIds: [Int]
     
     enum CodingKeys: String, CodingKey {
         case finalMark = "final_mark"
         case project
         case status
         case validated = "validated?"
+        case cursusIds = "cursus_ids"
     }
 }
 
@@ -85,7 +92,8 @@ struct Student : Codable {
     var wallet: Int
     
     var cursusUsers: [CursusUsers]
-    var projectsUsers: [ProjectsUser]
+    var projectsUsers: [ProjectUser]
+    var campus: [Campus]
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -106,6 +114,7 @@ struct Student : Codable {
         
         case cursusUsers = "cursus_users"
         case projectsUsers = "projects_users"
+        case campus = "campus"
     }
 }
 

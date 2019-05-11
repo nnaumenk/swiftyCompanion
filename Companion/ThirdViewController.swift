@@ -8,14 +8,39 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
-
-    @IBOutlet weak var image: UIImageView!
+extension ThirdViewController: UITableViewDataSource {
     
-    var img: UIImage!
-    
-    override func viewDidLoad() {
-         image.image = img
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("count", projects.count)
+        return projects.count
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "parentProjectCell") as! ParentProjectCell
+        
+        let projectUser = projects[indexPath.row]
+        cell.name.text = projectUser.project.name
+        
+        if let mark = projectUser.finalMark { cell.mark.text = String(mark)}
+        else { cell.mark.text = projectUser.status }
+        
+        if let validated = projectUser.validated {
+            if validated { cell.mark.textColor = UIColor.green
+            }
+            else { cell.mark.textColor = UIColor.red }
+        } else { cell.mark.textColor = UIColor.yellow }
+        return cell
+    }
+    
+    
+    
+}
+
+class ThirdViewController: UIViewController {
+    
+    @IBOutlet weak var projectTable: UITableView!
+    
+    var projects : [ProjectUser]!
+    
 
 }

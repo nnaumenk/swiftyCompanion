@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreGraphics
+
 
 extension ViewController {
     func getToken() {
@@ -36,13 +38,20 @@ extension ViewController {
         let login = loginTextField.text!
         
         if login.isEmpty { return false }
-        if login.rangeOfCharacter(from: CharacterSet.alphanumerics.inverted) != nil { return false }
+        if login.rangeOfCharacter(from: CharacterSet.alphanumerics.inverted) != nil {
+            print("inapropriate characters")
+            return false
+        }
         
         DataController.login = login
-        let getStudent = GetStudent(token: DataController.token!, login: login)
+        guard let token = DataController.token else { return false }
+        let getStudent = GetStudent(token: token, login: login)
         let operationsQueue = OperationQueue()
         operationsQueue.addOperations([getStudent], waitUntilFinished: true)
-        if DataController.student == nil { return false }
+        if DataController.student == nil {
+            print("no student with such login")
+            return false
+        }
         return true
     }
 }
@@ -50,16 +59,29 @@ extension ViewController {
 class ViewController: UIViewController {
     @IBOutlet weak var loginTextField: UITextField!
     
+    @IBOutlet weak var bar: UIProgressView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getToken()
+        
+        self.bar.progress = 0.5
+       // self.bar.progressViewStyle = .bar
+      //  self.bar.trackImage = UIImage(named: "bar")
+        self.bar.progressImage = UIImage(named: "bar")
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        
+        
     }
-    
-    @IBAction func buttonSearchPressed(_ sender: UIButton) {
+        
         if getStudent() {
             print("SEGUE")
             self.performSegue(withIdentifier: "segueToVC2", sender: nil)
@@ -73,6 +95,8 @@ class ViewController: UIViewController {
         }
     }
 }
+
+
 
 
 
