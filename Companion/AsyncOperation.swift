@@ -23,6 +23,7 @@ class AsyncOperation: Operation {
         willSet {
             willChangeValue(forKey: newValue.keyPath)
             willChangeValue(forKey: state.keyPath)
+            print("newValue", newValue)
         }
         didSet {
             didChangeValue(forKey: oldValue.keyPath)

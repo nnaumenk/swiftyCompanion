@@ -77,7 +77,12 @@ extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
         case skillTable:
             let cell = tableView.dequeueReusableCell(withIdentifier: "skillCell") as! SkillCell
             
+            cell.progressBar.progress = CGFloat(skills[indexPath.row].level / 20)
+            cell.progressBar.progressTintColor = UIColor.red
+            
+            cell.level.text = String(skills[indexPath.row].level)
             cell.name.text = skills[indexPath.row].name
+            
             return cell
             
         case projectTable:
@@ -264,6 +269,7 @@ class SecondViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
 
         if DataController.student == nil { return }
+        
         
         student = DataController.student!
         skills = student.cursusUsers[0].skills

@@ -9,9 +9,8 @@
 import Foundation
 
 struct DataController {
-    
-    static var token: String!
     static var login: String!
+    static var token: String?
     static var student: Student?
 }
 

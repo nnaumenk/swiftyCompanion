@@ -8,14 +8,11 @@
 
 import UIKit
 import SpriteKit
+import YLProgressBar
 
 class SkillCell: UITableViewCell {
 
-    
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var sprite: SKView!
-    
-    
-    // @IBOutlet weak var image: UIImageView!
-    
+    @IBOutlet weak var level: UILabel!
+    @IBOutlet weak var progressBar: YLProgressBar!
 }

@@ -1,0 +1,20 @@
+PODS:
+  - AMProgressBar (0.1.0)
+  - YLProgressBar (3.11.0)
+
+DEPENDENCIES:
+  - AMProgressBar
+  - YLProgressBar (~> 3.11.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AMProgressBar
+    - YLProgressBar
+
+SPEC CHECKSUMS:
+  AMProgressBar: 3f4671c4af4cb4fc9864ddc0a688450c8c7d1561
+  YLProgressBar: 0c0796a6e9b5e5d5040d15c8911e802b67ccb939
+
+PODFILE CHECKSUM: 537315af255455df884d1a12cc1fab5276790d96
+
+COCOAPODS: 1.6.1
