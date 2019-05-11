@@ -81,7 +81,8 @@ class ViewController: UIViewController {
         
         
     }
-        
+    
+    @IBAction func buttonSearchPressed(_ sender: UIButton) {
         if getStudent() {
             print("SEGUE")
             self.performSegue(withIdentifier: "segueToVC2", sender: nil)
