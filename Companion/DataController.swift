@@ -10,6 +10,8 @@ import Foundation
 
 struct DataController {
     static var login: String!
+    static var statusCode: Int?
+    
     static var token: String?
     static var student: Student?
 }

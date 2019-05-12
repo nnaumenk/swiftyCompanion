@@ -33,7 +33,8 @@ import CoreGraphics
 //}
 
 extension ViewController {
-    func getStudent() -> Bool{
+    
+    func getStudent() -> Bool {
         let login = loginTextField.text!
         
         if login.isEmpty { return false }
@@ -42,11 +43,30 @@ extension ViewController {
             return false
         }
         
-        DataController.login = login
-        guard let token = DataController.token else { return false }
-        let getStudent = GetStudent(token: token, login: login)
+        DataController.login = login.lowercased()
+        
+        let getStudent = GetStudent(token: DataController.token, login: DataController.login)
         let operationsQueue = OperationQueue()
         operationsQueue.addOperations([getStudent], waitUntilFinished: true)
+        
+        guard let status = DataController.statusCode else {
+            print("Internet problem")
+            return false
+        }
+        if status == 401 {
+            print("status")
+            let getToken = GetToken()
+            let operationsQueue2 = OperationQueue()
+            print(1)
+            operationsQueue2.addOperations([getToken], waitUntilFinished: true)
+            print(2)
+            
+            let getStudent = GetStudent(token: DataController.token, login: DataController.login)
+            let operationsQueue3 = OperationQueue()
+            operationsQueue3.addOperations([getStudent], waitUntilFinished: true)
+            print("status =", DataController.statusCode as Any)
+        }
+        
         if DataController.student == nil {
             print("no student with such login")
             return false

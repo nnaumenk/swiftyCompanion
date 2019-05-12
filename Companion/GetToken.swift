@@ -22,27 +22,24 @@ class GetToken: AsyncOperation {
     }
     
     override func main() {
-        self.state = .executing
-        DataController.token = nil
-        print("OK")
+       
         if isCancelled {
             self.state = .finished
             return
         }
-        print("OK2")
+        
+        DataController.token = nil
         
         guard let url = URL(string: "https://api.intra.42.fr/oauth/token?") else {
             self.state = .finished
             return
         }
-        print("OK3")
+        
         var requset = URLRequest(url: url)
         requset.httpMethod = "POST"
         requset.httpBody = grantType.data(using: .utf8)
         let session = URLSession.shared
-        print("session")
         session.dataTask(with: requset) {data, response, error in
-            print("OK4")
             guard let data = data else {
                 self.state = .finished
                 return
@@ -59,8 +56,10 @@ class GetToken: AsyncOperation {
                 self.state = .finished
                 return
             }
+            
             DataController.token = token
-            print("token=", DataController.token!)/////
+            self.state = .finished
+            
         }.resume()
     }
 }

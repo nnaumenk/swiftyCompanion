@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YLProgressBar
 
 extension SecondViewController {
     func loadImage(string: String) {
@@ -29,28 +30,37 @@ extension SecondViewController {
         wallet.text = "\(student.wallet)"
         correctionPoints.text = "\(student.correctionPoint)"
         level.text = "\(student.cursusUsers[0].level)"
+        level2.text = "\(student.cursusUsers[0].level)"
         pool.text = "\(student.poolMonth) \(student.poolYear)"
     }
     
     func showAdditionalInformation() {
         if let phone = student.phone {
-            phoneTop.text = phone
+            mobile.text = phone
         } else {
-            phoneTop.text = "none"
+            mobile.text = "none"
         }
         
-        emailTop.text = student.email
+        email.text = student.email
         
-        if let location = student.location {
-            locationTop.text = location + " - " + student.campus[0].name
+        if let studentLocation = student.location {
+            location.text = studentLocation + " - " + student.campus[0].name
         } else {
-            locationTop.text = "unavailable - " + student.campus[0].name
+            location.text = "unavailable - " + student.campus[0].name
         }
         let campusCount = student.campus.count
-        if campusCount == 1 { return }
-        for index in 1..<campusCount {
-            locationTop.text = locationTop.text! + " | " + student.campus[index].name
+        if campusCount != 1 {
+            for index in 1..<campusCount {
+                location.text = location.text! + " | " + student.campus[index].name
+            }
         }
+        
+        levelBar.progress = CGFloat(student.cursusUsers[0].level.truncatingRemainder(dividingBy: 1.0))
+        print("OK")
+        print(student.cursusUsers[0].level.truncatingRemainder(dividingBy: 1.0))
+        levelBar.hideStripes = true
+        levelBar.progressTintColor = UIColor.cyan
+        
     }
 }
 
@@ -199,12 +209,16 @@ extension SecondViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             level.text = String(student.cursusUsers[0].level)
+            level2.text = String(student.cursusUsers[0].level)
+            levelBar.progress = CGFloat(student.cursusUsers[0].level.truncatingRemainder(dividingBy: 1.0))
             skills = student.cursusUsers[0].skills
             allProjects = allProjects42
             childProjects = childProjects42
             
         case 1:
             level.text = String(student.cursusUsers[1].level)
+            level2.text = String(student.cursusUsers[1].level)
+            levelBar.progress = CGFloat(student.cursusUsers[1].level.truncatingRemainder(dividingBy: 1.0))
             skills = student.cursusUsers[1].skills
             allProjects = allProjectsPool
             childProjects = childProjectsPool
@@ -224,24 +238,16 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var wallet: UILabel!
     @IBOutlet weak var correctionPoints: UILabel!
     @IBOutlet weak var level: UILabel!
+    @IBOutlet weak var level2: UILabel!
     @IBOutlet weak var pool: UILabel!
-    
-    @IBOutlet weak var phoneImage: UIImageView!
-    @IBOutlet weak var phoneTop: UILabel!
-    @IBOutlet weak var phoneBottom: UILabel!
-    
-    @IBOutlet weak var emailImage: UIImageView!
-    @IBOutlet weak var emailTop: UILabel!
-    @IBOutlet weak var emailBottom: UILabel!
-    
-    @IBOutlet weak var locationImage: UIImageView!
-    @IBOutlet weak var locationTop: UILabel!
-    @IBOutlet weak var locationBottom: UILabel!
+    @IBOutlet weak var mobile: UILabel!
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var levelBar: YLProgressBar!
     
     @IBOutlet weak var skillTable: UITableView!
     @IBOutlet weak var projectTable: UITableView!
     @IBOutlet weak var segmentController: UISegmentedControl!
-    
     
     var student: Student!
     
@@ -270,17 +276,12 @@ class SecondViewController: UIViewController {
 
         if DataController.student == nil { return }
         
-        
         student = DataController.student!
         skills = student.cursusUsers[0].skills
         projectsParser()
         checkPoolFailed()
         showMainInformation()
         showAdditionalInformation()
-        //emailBottom.textColor = UIColor.blue
-        
-//        image.layer.cornerRadius = (image.frame.size.height + image.frame.size.width) / 8
-//        image.layer.masksToBounds = true
     }
     
     
