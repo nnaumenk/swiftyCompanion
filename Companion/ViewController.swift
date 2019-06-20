@@ -9,29 +9,6 @@
 import UIKit
 import CoreGraphics
 
-//extension ViewController {
-//    func getToken() {
-//        let uid = "990f3ad71fc7d2130681e6b5b73f48c43c5f1dba4b239853f9a1c2efd17dc116"
-//        let secret = "cc1ac6f86f61e96795af75120f028079a3ec0f5083b037c3eb6ce84e1c702b01"
-//        let grantType = "grant_type=client_credentials&client_id=\(uid)&client_secret=\(secret)"
-//
-//        guard let url = URL(string: "https://api.intra.42.fr/oauth/token?") else { return }
-//        var requset = URLRequest(url: url)
-//        requset.httpMethod = "POST"
-//        requset.httpBody = grantType.data(using: .utf8)
-//        let session = URLSession.shared
-//        session.dataTask(with: requset) {data, response, error in
-//            guard let data = data else { return }
-//            guard let json = try? JSONSerialization.jsonObject(with: data, options: []) else { return }
-//            print("json", json)
-//            guard let dictionary = json as? NSDictionary else { return }
-//            guard let token = dictionary["access_token"] as? String else { return }
-//            DataController.token = token
-//            print("token=", DataController.token!)/////
-//            }.resume()
-//    }
-//}
-
 extension ViewController {
     
     func getStudent() -> Bool {
@@ -81,8 +58,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let getToken = GetToken()
-        //getToken.main()
+        let getToken = GetToken()
+        getToken.main()
         
         DataController.token = "123"
     }
